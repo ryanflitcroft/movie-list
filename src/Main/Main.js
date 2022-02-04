@@ -19,7 +19,13 @@ export default function Main({
         yearReleased={yearReleased} setYearReleased={setYearReleased}
         color={color} setColor={setColor}
         allMovies={allMovies} setAllMovies={setAllMovies} />
-      <MovieList />
+      <MovieList allMovies={allMovies}
+        filteredMovies={filteredMovies}
+        filter={filter} setFilter={setFilter}
+        movieTitle={movieTitle}
+        movieDirector={movieDirector}
+        yearReleased={yearReleased}
+        color={color} />
     </main>
   );
 }
