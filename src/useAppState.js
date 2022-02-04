@@ -5,8 +5,8 @@ export default function useAppState() {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [filter, setFilter] = useState('');
   const [movieTitle, setMovieTitle] = useState('');
-  const [yearReleased, setYearReleased] = useState('');
   const [movieDirector, setMovieDirector] = useState('');
+  const [yearReleased, setYearReleased] = useState('');
   const [color, setColor] = useState(''); 
 
   return {
@@ -14,8 +14,8 @@ export default function useAppState() {
     filteredMovies, setFilteredMovies,
     filter, setFilter,
     movieTitle, setMovieTitle,
-    yearReleased, setYearReleased,
     movieDirector, setMovieDirector,
+    yearReleased, setYearReleased,
     color, setColor
   };
 }

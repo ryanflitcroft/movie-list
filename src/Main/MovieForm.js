@@ -1,17 +1,63 @@
 import React from 'react';
 
-export default function MovieForm() {
+export default function MovieForm({
+  movieTitle, setMovieTitle,
+  movieDirector, setMovieDirector,
+  yearReleased, setYearReleased,
+  color, setColor,
+  allMovies, setAllMovies
+}) {
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const submitMovie = {
+      id: Math.random(),
+      movieTitle,
+      movieDirector,
+      yearReleased,
+      color
+    };
+
+    setAllMovies([...allMovies, submitMovie]);
+    setMovieTitle('');
+    setMovieDirector('');
+    setYearReleased('');
+    setColor('');
+  }
+  
   return (
     <section>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor='name'>Title</label>
-        <input name='title' type='text' placeholder='Paranoid Park' value={''} required />
+        <input onChange={(e) => setMovieTitle(e.target.value)}
+          name='title' 
+          type='text' 
+          placeholder='Paranoid Park' 
+          value={movieTitle} 
+          required />
         <label htmlFor='director'>Director</label>
-        <input name='director' type='text' placeholder='Gus Van Sant' value={''} required />
+        <input onChange={(e) => setMovieDirector(e.target.value)}
+          name='director' 
+          type='text' 
+          placeholder='Gus Van Sant' 
+          value={movieDirector} 
+          required />
         <label htmlFor='yearReleased'>Year Released</label>
-        <input name='yearReleased' type='number' min='1900' max='2022' placeholder='2007' value={''} required />
+        <input onChange={(e) => setYearReleased(e.target.value)}
+          name='yearReleased' 
+          type='number' 
+          min='1900' 
+          max='2022' 
+          placeholder='2007' 
+          value={yearReleased} 
+          required />
         <label htmlFor='color'>Color</label>
-        <input type='color' value={''} required />
+        <input onChange={(e) => setColor(e.target.value)}
+          type='color' 
+          value={color} 
+          required />
+        <button value='submit'>Submit</button>
       </form>
     </section>
   );

@@ -7,14 +7,18 @@ export default function Main({
   filteredMovies, setFilteredMovies,
   filter, setFilter,
   movieTitle, setMovieTitle,
-  yearReleased, setYearReleased,
   movieDirector, setMovieDirector,
+  yearReleased, setYearReleased,
   color, setColor
 }) {
 
   return (
     <main>
-      <MovieForm />
+      <MovieForm movieTitle={movieTitle} setMovieTitle={setMovieTitle}
+        movieDirector={movieDirector} setMovieDirector={setMovieDirector}
+        yearReleased={yearReleased} setYearReleased={setYearReleased}
+        color={color} setColor={setColor}
+        allMovies={allMovies} setAllMovies={setAllMovies} />
       <MovieList />
     </main>
   );
