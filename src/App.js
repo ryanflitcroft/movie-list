@@ -7,7 +7,13 @@ import Footer from './Footer/Footer';
 
 function App() {
   const {
-    
+    allMovies, setAllMovies,
+    filteredMovies, setFilteredMovies,
+    filter, setFilter,
+    movieTitle, setMovieTitle,
+    yearReleased, setYearReleased,
+    movieDirector, setMovieDirector,
+    color, setColor
   } = useAppState();
 
   return (
