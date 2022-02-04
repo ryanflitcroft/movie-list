@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
+import MovieFilter from './MovieFilter';
 
 export default function MovieList({
   allMovies,
@@ -14,7 +15,10 @@ export default function MovieList({
 
   return (
     <section>
-      {allMovies.map((movie, i) =>
+      <MovieFilter filter={filter}
+        setFilter={setFilter} />
+        
+      {filteredMovies.map((movie, i) =>
         <Movie key={movie, i}
           movie={movie} />
       )}

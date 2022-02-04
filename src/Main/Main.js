@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MovieList from './MovieList';
 import MovieForm from './MovieForm';
 
@@ -11,6 +11,19 @@ export default function Main({
   yearReleased, setYearReleased,
   color, setColor
 }) {
+  
+  useEffect(() => {
+    if (!filter) {
+      setFilteredMovies([...allMovies]);
+    } else {
+      const filteredMovies = allMovies.filter(movie => movie.movieTitle.toLowerCase().includes(filter.toLowerCase()));
+      setFilteredMovies([...filteredMovies]);
+    }
+
+  }
+  , [allMovies, filter, setFilteredMovies]);      
+
+
 
   return (
     <main>
