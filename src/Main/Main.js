@@ -32,7 +32,7 @@ export default function Main({
         yearReleased={yearReleased} setYearReleased={setYearReleased}
         color={color} setColor={setColor}
         allMovies={allMovies} setAllMovies={setAllMovies} />
-      <MovieList allMovies={allMovies}
+      <MovieList allMovies={allMovies} setAllMovies={setAllMovies}
         filteredMovies={filteredMovies}
         filter={filter} setFilter={setFilter}
         movieTitle={movieTitle}
