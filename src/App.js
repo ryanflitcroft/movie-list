@@ -19,7 +19,13 @@ function App() {
   return (
     <>
       <Header />
-      <Main />
+      <Main allMovies={allMovies} setAllMovies={setAllMovies}
+        filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies}
+        filter={filter} setFilter={setFilter}
+        movieTitle={movieTitle} setMovieTitle={setMovieTitle}
+        yearReleased={yearReleased} setYearReleased={setYearReleased}
+        movieDirector={movieDirector} setMovieDirector={setMovieDirector}
+        color={color} setColor={setColor} />
       <Footer />
     </>
   );
