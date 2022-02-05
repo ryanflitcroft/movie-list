@@ -27,15 +27,17 @@ export default function MovieForm({
   }
   
   return (
-    <section>
+    <>
       <form onSubmit={handleSubmit}>
+        <h2>Add a DVD</h2>
         <label htmlFor='name'>Title</label>
         <input onChange={(e) => setMovieTitle(e.target.value)}
           name='title' 
           type='text' 
           placeholder='Paranoid Park' 
           value={movieTitle} 
-          required />
+          required
+          autoFocus />
         <label htmlFor='director'>Director</label>
         <input onChange={(e) => setMovieDirector(e.target.value)}
           name='director' 
@@ -47,7 +49,7 @@ export default function MovieForm({
         <input onChange={(e) => setYearReleased(e.target.value)}
           name='yearReleased' 
           type='number' 
-          min='1900' 
+          min='1888' 
           max='2022' 
           placeholder='2007' 
           value={yearReleased} 
@@ -59,6 +61,6 @@ export default function MovieForm({
           required />
         <button value='submit'>Submit</button>
       </form>
-    </section>
+    </>
   );
 }

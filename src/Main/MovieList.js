@@ -1,17 +1,10 @@
 import React from 'react';
 import Movie from './Movie';
-import MovieFilter from './MovieFilter';
 
 export default function MovieList({
   allMovies,
   setAllMovies,
   filteredMovies,
-  filter,
-  setFilter,
-  // movieTitle,
-  // movieDirector,
-  // yearReleased,
-  // color
 }) {
 
   function deleteMovie(id) {
@@ -21,15 +14,18 @@ export default function MovieList({
   }
 
   return (
-    <section>
-      <MovieFilter filter={filter}
-        setFilter={setFilter} />
-
-      {filteredMovies.map((movie, i) =>
-        <Movie key={movie, i}
-          movie={movie}
-          deleteMovie={deleteMovie} />
-      )}
-    </section>
+    <>
+      <section>
+        {filteredMovies.map((movie, i) =>
+          <Movie key={movie, i}
+            id={movie.id}
+            movieTitle={movie.movieTitle}
+            movieDirector={movie.movieDirector}
+            yearReleased={movie.yearReleased}
+            color={movie.color}
+            deleteMovie={deleteMovie} />
+        )}
+      </section>
+    </>
   );
 }

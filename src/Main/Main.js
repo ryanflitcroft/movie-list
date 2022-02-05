@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import MovieList from './MovieList';
 import MovieForm from './MovieForm';
+import Movie from './Movie';
+import MovieFilter from './MovieFilter';
 
 export default function Main({
   allMovies, setAllMovies,
@@ -23,22 +25,33 @@ export default function Main({
   }
   , [allMovies, filter, setFilteredMovies]);      
 
-
-
   return (
     <main>
-      <MovieForm movieTitle={movieTitle} setMovieTitle={setMovieTitle}
-        movieDirector={movieDirector} setMovieDirector={setMovieDirector}
-        yearReleased={yearReleased} setYearReleased={setYearReleased}
-        color={color} setColor={setColor}
-        allMovies={allMovies} setAllMovies={setAllMovies} />
-      <MovieList allMovies={allMovies} setAllMovies={setAllMovies}
-        filteredMovies={filteredMovies}
-        filter={filter} setFilter={setFilter}
-        movieTitle={movieTitle}
-        movieDirector={movieDirector}
-        yearReleased={yearReleased}
-        color={color} />
+      <section>
+        <Movie movieTitle={movieTitle}
+          movieDirector={movieDirector}
+          yearReleased={yearReleased}
+          color={color} />
+        <MovieForm movieTitle={movieTitle} setMovieTitle={setMovieTitle}
+          movieDirector={movieDirector} setMovieDirector={setMovieDirector}
+          yearReleased={yearReleased} setYearReleased={setYearReleased}
+          color={color} setColor={setColor}
+          allMovies={allMovies} setAllMovies={setAllMovies} />        
+      </section>
+      <section>
+        <MovieFilter filter={filter}
+          setFilter={setFilter} />
+      </section>
+      <section>
+        <MovieList allMovies={allMovies} setAllMovies={setAllMovies}
+          filteredMovies={filteredMovies}
+          filter={filter} setFilter={setFilter}
+          movieTitle={movieTitle}
+          movieDirector={movieDirector}
+          yearReleased={yearReleased}
+          color={color} />
+      </section>
+
     </main>
   );
 }
