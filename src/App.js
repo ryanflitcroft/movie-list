@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import useAppState from './useAppState';
+import Header from './Header/Header';
+import Main from './Main/Main';
+import Footer from './Footer/Footer';
 
 function App() {
+  const {
+    allMovies, setAllMovies,
+    filteredMovies, setFilteredMovies,
+    filter, setFilter,
+    movieTitle, setMovieTitle,
+    yearReleased, setYearReleased,
+    movieDirector, setMovieDirector,
+    color, setColor
+  } = useAppState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Main allMovies={allMovies} setAllMovies={setAllMovies}
+        filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies}
+        filter={filter} setFilter={setFilter}
+        movieTitle={movieTitle} setMovieTitle={setMovieTitle}
+        yearReleased={yearReleased} setYearReleased={setYearReleased}
+        movieDirector={movieDirector} setMovieDirector={setMovieDirector}
+        color={color} setColor={setColor} />
+      <Footer />
+    </>
   );
 }
 
